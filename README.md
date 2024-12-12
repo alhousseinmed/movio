@@ -1,9 +1,13 @@
 Movio - Movie Browser Application
 
 Submitted by: Alhoussen Sidi (directory id: alhous15)
+
 Group Members: Alhoussen Sidi (alhous15)
+
 App Description: A movie browser that allows users to search movies, save favorites to their personal list, and browse popular movies using TMDB API.
+
 APIs: TMDB API (https://www.themoviedb.org/documentation/api)
+
 Contact Email: alhous15@terpmail.umd.edu
 
 
