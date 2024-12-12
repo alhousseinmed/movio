@@ -1,4 +1,6 @@
 Movio - Movie Browser Application
+DEPLOYED on https://movio-1.onrender.com/login 
+Github repo : https://github.com/alhousseinmed/movio/tree/main
 
 Submitted by: Alhoussen Sidi (directory id: alhous15)
 

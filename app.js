@@ -6,12 +6,11 @@ const session = require('express-session');
 const app = express();
 const port = 8000;
 
-const TMDB_API_KEY = process.env.TMDB_API_KEY || '1e23e1cbe808fc398defed60deb63779';
+const TMDB_API_KEY = '1e23e1cbe808fc398defed60deb63779';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://alhous15:YOUR_PASSWORD@cluster0.s1eis.mongodb.net/movieBrowser?retryWrites=true&w=majority&appName=Cluster0';
-
-mongoose.connect(mongoURI)
+// MongoDB connection with MongoDB Atlas
+mongoose.connect('mongodb+srv://alhous15:pK92MN9g48MGXKTE@cluster0.s1eis.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 .then(() => {
     console.log('Connected to MongoDB Atlas');
 })
