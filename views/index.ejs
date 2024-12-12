@@ -1,0 +1,60 @@
+
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Browser</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <h1>Movie Browser</h1>
+            <div class="nav-links">
+                <span>Welcome, <%= userEmail %></span>
+                <a href="/my-movies">My Movies</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </nav>
+        
+        <form action="/search" method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Search movies..." value="<%= locals.searchQuery || '' %>">
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="movies-grid">
+            <% movies.forEach(movie => { %>
+                <div class="movie-card">
+                    <% if (movie.poster_path) { %>
+                        <img src="https://image.tmdb.org/t/p/w500<%= movie.poster_path %>" alt="<%= movie.title %>">
+                    <% } else { %>
+                        <div class="no-image">No Image Available</div>
+                    <% } %>
+                    <div class="movie-info">
+                        <h2><%= movie.title %></h2>
+                        <p class="rating">★ <%= movie.vote_average.toFixed(1) %></p>
+                        <p class="release-date"><%= movie.release_date %></p>
+                        <p class="overview"><%= movie.overview.substring(0, 150) %>...</p>
+                        
+                        <% if (!myMovieIds.includes(movie.id)) { %>
+                            <form action="/add-movie" method="POST">
+                                <input type="hidden" name="movieId" value="<%= movie.id %>">
+                                <input type="hidden" name="title" value="<%= movie.title %>">
+                                <input type="hidden" name="poster_path" value="<%= movie.poster_path %>">
+                                <input type="hidden" name="vote_average" value="<%= movie.vote_average %>">
+                                <input type="hidden" name="release_date" value="<%= movie.release_date %>">
+                                <input type="hidden" name="overview" value="<%= movie.overview %>">
+                                <button type="submit" class="add-button">+ Add to My Movies</button>
+                            </form>
+                        <% } else { %>
+                            <button disabled class="added-button">✓ Added</button>
+                        <% } %>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>
