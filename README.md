@@ -12,6 +12,8 @@ App Description: A movie browser that allows users to search movies, save favori
 
 APIs: TMDB API (https://www.themoviedb.org/documentation/api)
 
+YouTube Video Link: (https://youtu.be/g3J4yhTlnJ8?si=SHV1wr2Hm2HZ6ZPl)
+
 Contact Email: alhous15@terpmail.umd.edu
 
 
